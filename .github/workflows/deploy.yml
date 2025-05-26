@@ -3,7 +3,7 @@ name: Deploy Flask API to VPS
 on:
   push:
     branches:
-      - main
+      - master  # Change to 'main' if your branch is named 'main'
 
 jobs:
   deploy:
@@ -22,9 +22,14 @@ jobs:
         script: |
           cd /root
           rm -rf rag-flask-api || true
-          git clone https://github.com/<krupali-moradiya27>/<Rag-API>.git rag-flask-api
+          git clone https://github.com/krupali-moradiya27/rag-flask-api.git
           cd rag-flask-api
+
+          # Set environment variables
           echo "API_KEY=${{ secrets.API_KEY }}" > .env
+          echo "GROQ_API_KEY=${{ secrets.GROQ_API_KEY }}" >> .env
+
+          # Rebuild and run Docker container
           docker stop rag-api || true
           docker rm rag-api || true
           docker build -t rag-api .
