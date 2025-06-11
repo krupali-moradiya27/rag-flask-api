@@ -11,7 +11,7 @@ API_KEY = os.getenv("API_KEY")
 def rag_chat():
     # 🔒 Step 1: Validate API Key
     request_key = request.headers.get("x-api-key")
-    print("hi")
+    print("hello")
     if request_key != API_KEY:
         return jsonify({"error": "Unauthorized"}), 401
 
