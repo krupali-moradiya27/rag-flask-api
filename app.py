@@ -7,6 +7,10 @@ app = Flask(__name__)
 
 API_KEY = os.getenv("API_KEY")
 
+@app.route("/", methods=["GET"])
+def health_check():
+    return jsonify({"status": "Server is running"}), 200
+
 @app.route("/rag-chat", methods=["POST"])
 def rag_chat():
     # 🔒 Step 1: Validate API Key
