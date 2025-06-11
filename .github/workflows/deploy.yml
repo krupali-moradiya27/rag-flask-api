@@ -33,4 +33,4 @@ jobs:
           docker stop rag-api || true
           docker rm rag-api || true
           docker build -t rag-api .
-          docker run -d -p 5000:5000 --env-file .env --name rag-api rag-api
+          docker run -d -p 5003:5000 --env-file .env --name rag-api rag-api
