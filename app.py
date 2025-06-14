@@ -15,7 +15,6 @@ def health_check():
 def rag_chat():
     # 🔒 Step 1: Validate API Key
     request_key = request.headers.get("x-api-key")
-    print("hellloo")
     if request_key != API_KEY:
         return jsonify({"error": "Unauthorized"}), 401
 
