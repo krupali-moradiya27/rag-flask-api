@@ -2,7 +2,7 @@
 from flask import Flask, request, jsonify
 from generate_response import generate_response
 import os
-print(hello)
+
 app = Flask(__name__)
 
 API_KEY = os.getenv("API_KEY")
