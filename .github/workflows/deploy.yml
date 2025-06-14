@@ -24,7 +24,7 @@ jobs:
 
     - name: Build & Run Docker container
       run: |
-        ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
+        ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << EOF
         cd ~/krupali-rag-api
 
         echo "API_KEY=${API_KEY}" > .env
